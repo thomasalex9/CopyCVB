@@ -19,7 +19,7 @@ namespace CopyCVB
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Starting CopyCVB.");
+            Console.WriteLine("Starting CopyCVB.  I mean it this time.");
 
             string cvb_conn_str =
                 "data source=g6i6eeeoqz.database.windows.net;" +
