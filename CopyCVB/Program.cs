@@ -22,38 +22,40 @@ namespace CopyCVB
             Console.WriteLine("Starting CopyCVB.");
 
             string cvb_conn_str =
-                "data source=g6i6eeeoqz.database.windows.net;" +
-                "initial catalog=db_aaa0651b_2358_4854_b28f_614a67adaa8b;" +
-                "persist security info=True;" +
-                "user id=db_aaa0651b_2358_4854_b28f_614a67adaa8b_ExternalReader;" +
-                "password=8zsZDlWzRv>Cobm;" +
-                "MultipleActiveResultSets=True;";
+                @"data source=ghid4mi5ig.database.windows.net;" +
+                @"initial catalog=db_aaa0651b_2358_4854_b28f_614a67adaa8b;" +
+                @"persist security info=True;" +
+                @"user id=db_aaa0651b_2358_4854_b28f_614a67adaa8b_ExternalReader;" +
+                @"password=sQ2Hp%G&KZ9$H+V" +
+                @";MultipleActiveResultSets=True;";
             //+
             //"App=EntityFramework;" +
             //"providerName = System.Data.SqlClient";
             Console.WriteLine("Connecting to Access Web App SQL Server.");
             cvb_conn = new SqlConnection(cvb_conn_str);
-            
+            cvb_conn.Open();
+
             // note: the localdb instance needs to be manully started at a 
             // cmd prompt:  "sqllocaldb.exe start", then
             // "sqllocaldb.exe info"
-            //string mdb_conn_str =
-            //   @"data source=(localdb)\ProjectsV13;" +
-            //   "initial catalog=meradia_db;" +
-            //   "persist security info=True;" +
-            //   "Integrated Security=true;" +
-            //   "MultipleActiveResultSets=True;";
+            string mdb_conn_str =
+               @"data source=(localdb)\ProjectsV13;" +
+               "initial catalog=meradia_db;" +
+               "persist security info=True;" +
+               "Integrated Security=true;" +
+               "MultipleActiveResultSets=True;";
+            Console.WriteLine("Connecting to Local DB.");
 
             // connection string for AZURE:
-            string mdb_conn_str =
-               @"data source=meradia-db.database.windows.net,1433;" +
-               "initial catalog=meradia_db;" +
-               "persist security info=False;" +
-               "user id=db_admin; password=Tiller17!;" +
-               "MultipleActiveResultSets=False;" +
-               "TrustServerCertificate = False; Connection Timeout = 30";
+            //string mdb_conn_str =
+            //   @"data source=meradia-db.database.windows.net,1433;" +
+            //   "initial catalog=meradia_db;" +
+            //   "persist security info=False;" +
+            //   "user id=db_admin; password=Tiller17!;" +
+            //   "MultipleActiveResultSets=False;" +
+            //   "TrustServerCertificate = False; Connection Timeout = 30";
+            // Console.WriteLine("Connecting to Azure SQL.");
 
-            Console.WriteLine("Connecting to Azure SQL.");
             mdb_conn = new SqlConnection(mdb_conn_str);
             mdb_conn.Open();
 
@@ -69,7 +71,6 @@ namespace CopyCVB
                         "[ObjectName] <> 'Trace' and " +
                         "[ObjectName] not like 'dummy%' and " +
                         "[ObjectName] not like 'i_%'";
-            cvb_conn.Open();
             SqlCommand cmd = new SqlCommand(qry, cvb_conn);
             SqlDataReader tables = cmd.ExecuteReader();
             while (tables.Read())
@@ -133,7 +134,6 @@ namespace CopyCVB
                         "[ObjectName] not like 'dummy%' and " +
                         "[ObjectName] not like 'i_%' " +
                         "order by ObjectName";
-            cvb_conn.Open();
             SqlCommand cmd = new SqlCommand(qry, cvb_conn);
             SqlDataReader tables = cmd.ExecuteReader();
 
