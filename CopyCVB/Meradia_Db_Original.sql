@@ -10,7 +10,6 @@ SET QUOTED_IDENTIFIER OFF;
 GO
 USE meradia_db;
 GO
-GO
 
 -- --------------------------------------------------
 -- Dropping existing FOREIGN KEY constraints
