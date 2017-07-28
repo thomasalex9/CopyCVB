@@ -21,6 +21,9 @@ namespace CopyCVB
         {
             Console.WriteLine("Starting CopyCVB.");
 
+            // this is the connection string for the Access SQL
+            // database under SharePoint.  The password for this 
+            // will occasionally change.
             string cvb_conn_str =
                 @"data source=ghid4mi5ig.database.windows.net;" +
                 @"initial catalog=db_aaa0651b_2358_4854_b28f_614a67adaa8b;" +
@@ -38,24 +41,23 @@ namespace CopyCVB
             // note: the localdb instance needs to be manully started at a 
             // cmd prompt:  "sqllocaldb.exe start", then
             // "sqllocaldb.exe info"
-            string mdb_conn_str =
-               @"data source=(localdb)\ProjectsV13;" +
-               "initial catalog=meradia_db;" +
-               "persist security info=True;" +
-               "Integrated Security=true;" +
-               "MultipleActiveResultSets=True;";
-            Console.WriteLine("Connecting to Local DB.");
+            //string mdb_conn_str =
+            //   @"data source=(localdb)\ProjectsV13;" +
+            //   "initial catalog=meradia_db;" +
+            //   "persist security info=True;" +
+            //   "Integrated Security=true;" +
+            //   "MultipleActiveResultSets=True;";
+            //Console.WriteLine("Connecting to Local DB.");
 
             // connection string for AZURE:
-            //string mdb_conn_str =
-            //   @"data source=meradia-db.database.windows.net,1433;" +
-            //   "initial catalog=meradia_db;" +
-            //   "persist security info=False;" +
-            //   "user id=db_admin; password=Tiller17!;" +
-            //   "MultipleActiveResultSets=False;" +
-            //   "TrustServerCertificate = False; Connection Timeout = 30";
-            // Console.WriteLine("Connecting to Azure SQL.");
-
+            string mdb_conn_str =
+               @"data source=meradia-db.database.windows.net,1433;" +
+               "initial catalog=meradia_db;" +
+               "persist security info=False;" +
+               "user id=db_admin; password=Tiller17!;" +
+               "MultipleActiveResultSets=False;" +
+               "TrustServerCertificate = False; Connection Timeout = 30";
+            Console.WriteLine("Connecting to Azure SQL.");
             mdb_conn = new SqlConnection(mdb_conn_str);
             mdb_conn.Open();
 

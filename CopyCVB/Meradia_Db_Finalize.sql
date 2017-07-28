@@ -1,9 +1,7 @@
 
 -- --------------------------------------------------
--- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
--- --------------------------------------------------
--- Date Created: 05/07/2017 13:15:41
--- Generated from EDMX file: C:\Users\Tom\documents\visual studio 2015\Projects\CopyCVB\CopyCVB\Model2.edmx
+-- Finalize the Meradia DB on the target Azure  SQL Server.
+-- May 2017: TEA: Initial version.
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
