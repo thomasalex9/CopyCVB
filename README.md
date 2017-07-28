@@ -1,6 +1,8 @@
 # CopyCVB
 First push.
 
+https://github.com/thomasalex9/CopyCVB
+
 CopyCVB is a repeatable method to port the legacy Access DB to AZURE SQL Server
 
 1. Meradia_Db_Original.SQL was generated from Enity Framework Designer pointing to the legacy 
