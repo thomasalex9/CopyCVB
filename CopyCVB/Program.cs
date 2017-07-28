@@ -23,7 +23,7 @@ namespace CopyCVB
 
             // this is the connection string for the Access SQL
             // database under SharePoint.  The password for this 
-            // will occasionally change.
+            // will occasionally change. 
             string cvb_conn_str =
                 @"data source=ghid4mi5ig.database.windows.net;" +
                 @"initial catalog=db_aaa0651b_2358_4854_b28f_614a67adaa8b;" +
@@ -31,9 +31,6 @@ namespace CopyCVB
                 @"user id=db_aaa0651b_2358_4854_b28f_614a67adaa8b_ExternalReader;" +
                 @"password=sQ2Hp%G&KZ9$H+V" +
                 @";MultipleActiveResultSets=True;";
-            //+
-            //"App=EntityFramework;" +
-            //"providerName = System.Data.SqlClient";
             Console.WriteLine("Connecting to Access Web App SQL Server.");
             cvb_conn = new SqlConnection(cvb_conn_str);
             cvb_conn.Open();
