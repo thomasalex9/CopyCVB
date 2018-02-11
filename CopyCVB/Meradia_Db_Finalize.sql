@@ -484,14 +484,15 @@ ON [consultant_employment_history]
     ([consultant_id]);
 GO
 
+-- TA 2/11/2018.  Don't need this table in the new DB
 -- Creating foreign key on [consultant_id] in table 'experience'
-ALTER TABLE [experience]
-ADD CONSTRAINT [FK_consultant_experience_17588600_E1FB_486C_A6F7_99C79EDFFFE3]
-    FOREIGN KEY ([consultant_id])
-    REFERENCES [consultant]
-        ([ID])
-    ON DELETE CASCADE ON UPDATE NO ACTION;
-GO
+--ALTER TABLE [experience]
+--ADD CONSTRAINT [FK_consultant_experience_17588600_E1FB_486C_A6F7_99C79EDFFFE3]
+--    FOREIGN KEY ([consultant_id])
+--    REFERENCES [consultant]
+--        ([ID])
+--    ON DELETE CASCADE ON UPDATE NO ACTION;
+--GO
 
 -- TA 2/11/2018.  Don't need this table in the new DB
 -- Creating non-clustered index for FOREIGN KEY 'FK_consultant_experience_17588600_E1FB_486C_A6F7_99C79EDFFFE3'
