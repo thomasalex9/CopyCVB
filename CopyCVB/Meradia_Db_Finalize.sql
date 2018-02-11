@@ -1,7 +1,10 @@
 
+-- Meradia_Db_Finalize.sql
 -- --------------------------------------------------
--- Finalize the Meradia DB on the target Azure  SQL Server.
--- May 2017: TEA: Initial version.
+-- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
+-- --------------------------------------------------
+-- Date Created: 05/07/2017 13:15:41
+-- Generated from EDMX file: C:\Users\Tom\documents\visual studio 2015\Projects\CopyCVB\CopyCVB\Model2.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -43,11 +46,12 @@ ADD CONSTRAINT [PK_company]
     PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
+-- TA 2/11/2018.  Don't need this table in the new DB
 -- Creating primary key on [ID] in table 'company_info'
-ALTER TABLE [company_info]
-ADD CONSTRAINT [PK_company_info]
-    PRIMARY KEY CLUSTERED ([ID] ASC);
-GO
+--ALTER TABLE [company_info]
+--ADD CONSTRAINT [PK_company_info]
+--    PRIMARY KEY CLUSTERED ([ID] ASC);
+--GO
 
 -- Creating primary key on [ID] in table 'consultant'
 ALTER TABLE [consultant]
@@ -145,17 +149,17 @@ ADD CONSTRAINT [PK_exp_sort_col]
     PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
+-- TA 2/11/2018.  Don't need these tables in the new DB
 -- Creating primary key on [ID] in table 'experience'
-ALTER TABLE [experience]
-ADD CONSTRAINT [PK_experience]
-    PRIMARY KEY CLUSTERED ([ID] ASC);
-GO
-
--- Creating primary key on [ID] in table 'experience_detail'
-ALTER TABLE [experience_detail]
-ADD CONSTRAINT [PK_experience_detail]
-    PRIMARY KEY CLUSTERED ([ID] ASC);
-GO
+--ALTER TABLE [experience]
+--ADD CONSTRAINT [PK_experience]
+--    PRIMARY KEY CLUSTERED ([ID] ASC);
+--GO
+---- Creating primary key on [ID] in table 'experience_detail'
+--ALTER TABLE [experience_detail]
+--ADD CONSTRAINT [PK_experience_detail]
+--    PRIMARY KEY CLUSTERED ([ID] ASC);
+--GO
 
 -- Creating primary key on [ID] in table 'holidays'
 ALTER TABLE [holidays]
@@ -217,11 +221,12 @@ ADD CONSTRAINT [PK_speaking_engagement]
     PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
+-- TA 2/11/2018.  Don't need this table in the new DB
 -- Creating primary key on [ID] in table 'thought_leadership'
-ALTER TABLE [thought_leadership]
-ADD CONSTRAINT [PK_thought_leadership]
-    PRIMARY KEY CLUSTERED ([ID] ASC);
-GO
+--ALTER TABLE [thought_leadership]
+--ADD CONSTRAINT [PK_thought_leadership]
+--    PRIMARY KEY CLUSTERED ([ID] ASC);
+--GO
 
 -- Creating primary key on [ID] in table 'timeslip'
 ALTER TABLE [timeslip]
@@ -241,17 +246,17 @@ ADD CONSTRAINT [PK_timeslip_phase]
     PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
+-- TA 2/11/2018.  Don't need these tables in the new DB
 -- Creating primary key on [ID] in table 'timeslip_role'
-ALTER TABLE [timeslip_role]
-ADD CONSTRAINT [PK_timeslip_role]
-    PRIMARY KEY CLUSTERED ([ID] ASC);
-GO
-
+--ALTER TABLE [timeslip_role]
+--ADD CONSTRAINT [PK_timeslip_role]
+--    PRIMARY KEY CLUSTERED ([ID] ASC);
+--GO
 -- Creating primary key on [ID] in table 'timeslip_task'
-ALTER TABLE [timeslip_task]
-ADD CONSTRAINT [PK_timeslip_task]
-    PRIMARY KEY CLUSTERED ([ID] ASC);
-GO
+--ALTER TABLE [timeslip_task]
+--ADD CONSTRAINT [PK_timeslip_task]
+--    PRIMARY KEY CLUSTERED ([ID] ASC);
+--GO
 
 -- Creating primary key on [ID] in table 'title'
 ALTER TABLE [title]
@@ -359,20 +364,20 @@ ON [sow]
     ([company_id]);
 GO
 
+-- TA 2/11/2018.  Don't need this table in the new DB
 -- Creating foreign key on [sow_id] in table 'company_info'
-ALTER TABLE [company_info]
-ADD CONSTRAINT [FK_company_info_73948F99_6291_4E17_9CF0_738A6D600F41]
-    FOREIGN KEY ([sow_id])
-    REFERENCES [sow]
-        ([ID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
+--ALTER TABLE [company_info]
+--ADD CONSTRAINT [FK_company_info_73948F99_6291_4E17_9CF0_738A6D600F41]
+--    FOREIGN KEY ([sow_id])
+--    REFERENCES [sow]
+--        ([ID])
+--    ON DELETE NO ACTION ON UPDATE NO ACTION;
+--GO
 -- Creating non-clustered index for FOREIGN KEY 'FK_company_info_73948F99_6291_4E17_9CF0_738A6D600F41'
-CREATE INDEX [IX_FK_company_info_73948F99_6291_4E17_9CF0_738A6D600F41]
-ON [company_info]
-    ([sow_id]);
-GO
+--CREATE INDEX [IX_FK_company_info_73948F99_6291_4E17_9CF0_738A6D600F41]
+--ON [company_info]
+--    ([sow_id]);
+--GO
 
 -- Creating foreign key on [consultant_id] in table 'publication'
 ALTER TABLE [publication]
@@ -488,11 +493,12 @@ ADD CONSTRAINT [FK_consultant_experience_17588600_E1FB_486C_A6F7_99C79EDFFFE3]
     ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
+-- TA 2/11/2018.  Don't need this table in the new DB
 -- Creating non-clustered index for FOREIGN KEY 'FK_consultant_experience_17588600_E1FB_486C_A6F7_99C79EDFFFE3'
-CREATE INDEX [IX_FK_consultant_experience_17588600_E1FB_486C_A6F7_99C79EDFFFE3]
-ON [experience]
-    ([consultant_id]);
-GO
+--CREATE INDEX [IX_FK_consultant_experience_17588600_E1FB_486C_A6F7_99C79EDFFFE3]
+--ON [experience]
+--    ([consultant_id]);
+--GO
 
 -- Creating foreign key on [consultant_id] in table 'consultant_skill'
 ALTER TABLE [consultant_skill]
@@ -869,50 +875,46 @@ ON [exp_layout_grp]
     ([exp_layout_id]);
 GO
 
+-- TA 2/11/2018.  Don't need these tables in the new DB
 -- Creating foreign key on [sow_id] in table 'experience'
-ALTER TABLE [experience]
-ADD CONSTRAINT [FK_consultant_experience_9853426D_05AC_4213_819A_DC51BFB2110C]
-    FOREIGN KEY ([sow_id])
-    REFERENCES [sow]
-        ([ID])
-    ON DELETE CASCADE ON UPDATE NO ACTION;
-GO
-
+--ALTER TABLE [experience]
+--ADD CONSTRAINT [FK_consultant_experience_9853426D_05AC_4213_819A_DC51BFB2110C]
+--    FOREIGN KEY ([sow_id])
+--    REFERENCES [sow]
+--        ([ID])
+--    ON DELETE CASCADE ON UPDATE NO ACTION;
+--GO
 -- Creating non-clustered index for FOREIGN KEY 'FK_consultant_experience_9853426D_05AC_4213_819A_DC51BFB2110C'
-CREATE INDEX [IX_FK_consultant_experience_9853426D_05AC_4213_819A_DC51BFB2110C]
-ON [experience]
-    ([sow_id]);
-GO
-
+--CREATE INDEX [IX_FK_consultant_experience_9853426D_05AC_4213_819A_DC51BFB2110C]
+--ON [experience]
+--    ([sow_id]);
+--GO
 -- Creating foreign key on [experience_id] in table 'experience_detail'
-ALTER TABLE [experience_detail]
-ADD CONSTRAINT [FK_consultant_experience_de_24935C47_C285_422C_860A_FB16D48EA4AD]
-    FOREIGN KEY ([experience_id])
-    REFERENCES [experience]
-        ([ID])
-    ON DELETE CASCADE ON UPDATE NO ACTION;
-GO
-
+--ALTER TABLE [experience_detail]
+--ADD CONSTRAINT [FK_consultant_experience_de_24935C47_C285_422C_860A_FB16D48EA4AD]
+--    FOREIGN KEY ([experience_id])
+--    REFERENCES [experience]
+--        ([ID])
+--    ON DELETE CASCADE ON UPDATE NO ACTION;
+--GO
 -- Creating non-clustered index for FOREIGN KEY 'FK_consultant_experience_de_24935C47_C285_422C_860A_FB16D48EA4AD'
-CREATE INDEX [IX_FK_consultant_experience_de_24935C47_C285_422C_860A_FB16D48EA4AD]
-ON [experience_detail]
-    ([experience_id]);
-GO
-
+--CREATE INDEX [IX_FK_consultant_experience_de_24935C47_C285_422C_860A_FB16D48EA4AD]
+--ON [experience_detail]
+--    ([experience_id]);
+--GO
 -- Creating foreign key on [role_id] in table 'experience_detail'
-ALTER TABLE [experience_detail]
-ADD CONSTRAINT [FK_consultant_experience_de_14142970_A023_47FB_928E_CEEDA7A3DF70]
-    FOREIGN KEY ([role_id])
-    REFERENCES [role]
-        ([ID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
+--ALTER TABLE [experience_detail]
+--ADD CONSTRAINT [FK_consultant_experience_de_14142970_A023_47FB_928E_CEEDA7A3DF70]
+--    FOREIGN KEY ([role_id])
+--    REFERENCES [role]
+--        ([ID])
+--    ON DELETE NO ACTION ON UPDATE NO ACTION;
+--GO
 -- Creating non-clustered index for FOREIGN KEY 'FK_consultant_experience_de_14142970_A023_47FB_928E_CEEDA7A3DF70'
-CREATE INDEX [IX_FK_consultant_experience_de_14142970_A023_47FB_928E_CEEDA7A3DF70]
-ON [experience_detail]
-    ([role_id]);
-GO
+--CREATE INDEX [IX_FK_consultant_experience_de_14142970_A023_47FB_928E_CEEDA7A3DF70]
+--ON [experience_detail]
+--    ([role_id]);
+--GO
 
 -- Creating foreign key on [sow_id] in table 'noteworthy_sow'
 ALTER TABLE [noteworthy_sow]

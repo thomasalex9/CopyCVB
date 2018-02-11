@@ -54,18 +54,19 @@ GO
 IF OBJECT_ID(N'[FK_consultant_employment_hi_E076870E_EFAF_41D1_A0DF_A4EF75C0505D]', 'F') IS NOT NULL
     ALTER TABLE [consultant_employment_history] DROP CONSTRAINT [FK_consultant_employment_hi_E076870E_EFAF_41D1_A0DF_A4EF75C0505D];
 GO
-IF OBJECT_ID(N'[FK_consultant_experience_17588600_E1FB_486C_A6F7_99C79EDFFFE3]', 'F') IS NOT NULL
-    ALTER TABLE [experience] DROP CONSTRAINT [FK_consultant_experience_17588600_E1FB_486C_A6F7_99C79EDFFFE3];
-GO
-IF OBJECT_ID(N'[FK_consultant_experience_9853426D_05AC_4213_819A_DC51BFB2110C]', 'F') IS NOT NULL
-    ALTER TABLE [experience] DROP CONSTRAINT [FK_consultant_experience_9853426D_05AC_4213_819A_DC51BFB2110C];
-GO
-IF OBJECT_ID(N'[FK_consultant_experience_de_14142970_A023_47FB_928E_CEEDA7A3DF70]', 'F') IS NOT NULL
-    ALTER TABLE [experience_detail] DROP CONSTRAINT [FK_consultant_experience_de_14142970_A023_47FB_928E_CEEDA7A3DF70];
-GO
-IF OBJECT_ID(N'[FK_consultant_experience_de_24935C47_C285_422C_860A_FB16D48EA4AD]', 'F') IS NOT NULL
-    ALTER TABLE [experience_detail] DROP CONSTRAINT [FK_consultant_experience_de_24935C47_C285_422C_860A_FB16D48EA4AD];
-GO
+-- TA 2/11/2018.  Don't need these tables in the new DB
+--IF OBJECT_ID(N'[FK_consultant_experience_17588600_E1FB_486C_A6F7_99C79EDFFFE3]', 'F') IS NOT NULL
+--	  ALTER TABLE [experience] DROP CONSTRAINT [FK_consultant_experience_17588600_E1FB_486C_A6F7_99C79EDFFFE3];
+--GO
+--IF OBJECT_ID(N'[FK_consultant_experience_9853426D_05AC_4213_819A_DC51BFB2110C]', 'F') IS NOT NULL
+--    ALTER TABLE [experience] DROP CONSTRAINT [FK_consultant_experience_9853426D_05AC_4213_819A_DC51BFB2110C];
+--GO
+--IF OBJECT_ID(N'[FK_consultant_experience_de_14142970_A023_47FB_928E_CEEDA7A3DF70]', 'F') IS NOT NULL
+--    ALTER TABLE [experience_detail] DROP CONSTRAINT [FK_consultant_experience_de_14142970_A023_47FB_928E_CEEDA7A3DF70];
+--GO
+--IF OBJECT_ID(N'[FK_consultant_experience_de_24935C47_C285_422C_860A_FB16D48EA4AD]', 'F') IS NOT NULL
+--    ALTER TABLE [experience_detail] DROP CONSTRAINT [FK_consultant_experience_de_24935C47_C285_422C_860A_FB16D48EA4AD];
+--GO
 IF OBJECT_ID(N'[FK_consultant_skill_28A0DBD8_DB60_44EB_B061_D43E9A35EBF7]', 'F') IS NOT NULL
     ALTER TABLE [consultant_skill] DROP CONSTRAINT [FK_consultant_skill_28A0DBD8_DB60_44EB_B061_D43E9A35EBF7];
 GO
@@ -182,9 +183,10 @@ GO
 IF OBJECT_ID(N'[company]', 'U') IS NOT NULL
     DROP TABLE [company];
 GO
-IF OBJECT_ID(N'[company_info]', 'U') IS NOT NULL
-    DROP TABLE [company_info];
-GO
+-- TA 2/11/2018.  Don't need this table in the new DB
+--IF OBJECT_ID(N'[company_info]', 'U') IS NOT NULL
+--    DROP TABLE [company_info];
+--GO
 IF OBJECT_ID(N'[consultant]', 'U') IS NOT NULL
     DROP TABLE [consultant];
 GO
@@ -233,12 +235,13 @@ GO
 IF OBJECT_ID(N'[exp_sort_col]', 'U') IS NOT NULL
     DROP TABLE [exp_sort_col];
 GO
-IF OBJECT_ID(N'[experience]', 'U') IS NOT NULL
-    DROP TABLE [experience];
-GO
-IF OBJECT_ID(N'[experience_detail]', 'U') IS NOT NULL
-    DROP TABLE [experience_detail];
-GO
+-- TA 2/11/2018.  Don't need these tables in the new DB
+--IF OBJECT_ID(N'[experience]', 'U') IS NOT NULL
+--    DROP TABLE [experience];
+--GO
+--IF OBJECT_ID(N'[experience_detail]', 'U') IS NOT NULL
+--    DROP TABLE [experience_detail];
+--GO
 IF OBJECT_ID(N'[holidays]', 'U') IS NOT NULL
     DROP TABLE [holidays];
 GO
@@ -269,9 +272,10 @@ GO
 IF OBJECT_ID(N'[speaking_engagement]', 'U') IS NOT NULL
     DROP TABLE [speaking_engagement];
 GO
-IF OBJECT_ID(N'[thought_leadership]', 'U') IS NOT NULL
-    DROP TABLE [thought_leadership];
-GO
+-- TA 2/11/2018.  Don't need this table in the new DB
+--IF OBJECT_ID(N'[thought_leadership]', 'U') IS NOT NULL
+--    DROP TABLE [thought_leadership];
+--GO
 IF OBJECT_ID(N'[timeslip]', 'U') IS NOT NULL
     DROP TABLE [timeslip];
 GO
@@ -281,12 +285,13 @@ GO
 IF OBJECT_ID(N'[timeslip_phase]', 'U') IS NOT NULL
     DROP TABLE [timeslip_phase];
 GO
-IF OBJECT_ID(N'[timeslip_role]', 'U') IS NOT NULL
-    DROP TABLE [timeslip_role];
-GO
-IF OBJECT_ID(N'[timeslip_task]', 'U') IS NOT NULL
-    DROP TABLE [timeslip_task];
-GO
+-- TA 2/11/2018.  Don't need these tables in the new DB
+--IF OBJECT_ID(N'[timeslip_role]', 'U') IS NOT NULL
+--    DROP TABLE [timeslip_role];
+--GO
+--IF OBJECT_ID(N'[timeslip_task]', 'U') IS NOT NULL
+--    DROP TABLE [timeslip_task];
+--GO
 IF OBJECT_ID(N'[title]', 'U') IS NOT NULL
     DROP TABLE [title];
 GO
@@ -346,27 +351,28 @@ CREATE TABLE [company] (
 );
 GO
 
+-- TA 2/11/2018.  Don't need this table in the new DB
 -- Creating table 'company_info'
-CREATE TABLE [company_info] (
-    [ID] int IDENTITY(1,1) NOT NULL,
-    [company_nm] nvarchar(220)  NULL,
-    [owner_nm] nvarchar(220)  NULL,
-    [owner_title] nvarchar(220)  NULL,
-    [app_owner] nvarchar(220)  NULL,
-    [app_owner_title] nvarchar(220)  NULL,
-    [street_address] nvarchar(220)  NULL,
-    [city] nvarchar(220)  NULL,
-    [state] nvarchar(220)  NULL,
-    [phone_number] nvarchar(220)  NULL,
-    [fax_number] nvarchar(220)  NULL,
-    [website] nvarchar(max)  NULL,
-    [home_page_greeting] nvarchar(max)  NULL,
-    [zip_code] nvarchar(220)  NULL,
-    [sharepoint_site] nvarchar(max)  NULL,
-    [meradia_globe] int  NULL,
-    [sow_id] int  NULL
-);
-GO
+--CREATE TABLE [company_info] (
+--    [ID] int IDENTITY(1,1) NOT NULL,
+--    [company_nm] nvarchar(220)  NULL,
+--    [owner_nm] nvarchar(220)  NULL,
+--    [owner_title] nvarchar(220)  NULL,
+--    [app_owner] nvarchar(220)  NULL,
+--    [app_owner_title] nvarchar(220)  NULL,
+--    [street_address] nvarchar(220)  NULL,
+--    [city] nvarchar(220)  NULL,
+--    [state] nvarchar(220)  NULL,
+--    [phone_number] nvarchar(220)  NULL,
+--    [fax_number] nvarchar(220)  NULL,
+--    [website] nvarchar(max)  NULL,
+--    [home_page_greeting] nvarchar(max)  NULL,
+--    [zip_code] nvarchar(220)  NULL,
+--    [sharepoint_site] nvarchar(max)  NULL,
+--    [meradia_globe] int  NULL,
+--    [sow_id] int  NULL
+--);
+--GO
 
 -- Creating table 'consultant'
 CREATE TABLE [consultant] (
@@ -577,26 +583,26 @@ CREATE TABLE [exp_sort_col] (
 );
 GO
 
+-- TA 2/11/2018.  Don't need these tables in the new DB
 -- Creating table 'experience'
-CREATE TABLE [experience] (
-    [ID] int IDENTITY(1,1) NOT NULL,
-    [consultant_id] int  NOT NULL,
-    [sow_id] int  NOT NULL,
-    [tags] nvarchar(220)  NULL,
-    [order_nbr] int  NOT NULL
-);
-GO
-
--- Creating table 'experience_detail'
-CREATE TABLE [experience_detail] (
-    [ID] int IDENTITY(1,1) NOT NULL,
-    [experience_id] int  NULL,
-    [detail_txt] nvarchar(max)  NOT NULL,
-    [role_id] int  NOT NULL,
-    [tags] nvarchar(220)  NULL,
-    [order_nbr] int  NOT NULL
-);
-GO
+--CREATE TABLE [experience] (
+--    [ID] int IDENTITY(1,1) NOT NULL,
+--    [consultant_id] int  NOT NULL,
+--    [sow_id] int  NOT NULL,
+--    [tags] nvarchar(220)  NULL,
+--    [order_nbr] int  NOT NULL
+--);
+--GO
+---- Creating table 'experience_detail'
+--CREATE TABLE [experience_detail] (
+--    [ID] int IDENTITY(1,1) NOT NULL,
+--    [experience_id] int  NULL,
+--    [detail_txt] nvarchar(max)  NOT NULL,
+--    [role_id] int  NOT NULL,
+--    [tags] nvarchar(220)  NULL,
+--    [order_nbr] int  NOT NULL
+--);
+--GO
 
 -- Creating table 'holidays'
 CREATE TABLE [holidays] (
@@ -677,7 +683,11 @@ CREATE TABLE [sow] (
     [domain_id] int  NULL,
     [intro_dt] datetime  NULL,
     [intro_con] int  NULL,
-    [active_sow] bit  NOT NULL
+    [active_sow] bit  NOT NULL,
+	-- 2/11/2018 TA: these next two columns were added after the original
+	-- DDL script was generated.
+	[sales_type] nvarchar(max) NULL, -- possible values are New Business, Extension, Expansion
+	[sales_lead] int null -- foreign key to consultant table
 );
 GO
 
@@ -703,13 +713,14 @@ CREATE TABLE [speaking_engagement] (
 );
 GO
 
+-- TA 2/11/2018.  Don't need this table in the new DB
 -- Creating table 'thought_leadership'
-CREATE TABLE [thought_leadership] (
-    [ID] int IDENTITY(1,1) NOT NULL,
-    [consultant_id] int  NULL,
-    [thought_leadership_nm] nvarchar(220)  NULL
-);
-GO
+--CREATE TABLE [thought_leadership] (
+--    [ID] int IDENTITY(1,1) NOT NULL,
+--    [consultant_id] int  NULL,
+--    [thought_leadership_nm] nvarchar(220)  NULL
+--);
+--GO
 
 -- Creating table 'timeslip'
 CREATE TABLE [timeslip] (
@@ -743,19 +754,19 @@ CREATE TABLE [timeslip_phase] (
 );
 GO
 
+-- TA 2/11/2018.  Don't need these tables in the new DB
 -- Creating table 'timeslip_role'
-CREATE TABLE [timeslip_role] (
-    [ID] int IDENTITY(1,1) NOT NULL,
-    [slip_role_nm] nvarchar(220)  NULL
-);
-GO
-
+--CREATE TABLE [timeslip_role] (
+--    [ID] int IDENTITY(1,1) NOT NULL,
+--    [slip_role_nm] nvarchar(220)  NULL
+--);
+--GO
 -- Creating table 'timeslip_task'
-CREATE TABLE [timeslip_task] (
-    [ID] int IDENTITY(1,1) NOT NULL,
-    [slip_task_nm] nvarchar(40)  NULL
-);
-GO
+--CREATE TABLE [timeslip_task] (
+--    [ID] int IDENTITY(1,1) NOT NULL,
+--    [slip_task_nm] nvarchar(40)  NULL
+--);
+--GO
 
 -- Creating table 'title'
 CREATE TABLE [title] (

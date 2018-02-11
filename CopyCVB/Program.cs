@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+// using System.Collections.Generic;
+// using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-
-
+// using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
@@ -119,8 +117,9 @@ namespace CopyCVB
                         "[Definition] not LIKE '<Query%' AND " +
                         "[Definition] not like '<DataMacro%' and " +
                         "[ObjectName] not in ('trace','tag','view_log') and " +
+                        "[ObjectName] not in ('timeslip_role','timeslip_task') and " +
                         "[ObjectName] not in ('experience','experience_detail') and " +
-                        "[ObjectName] not in ('though_leadership','company_info') and " +
+                        "[ObjectName] not in ('thought_leadership','company_info') and " +
                         "[ObjectName] not like 'dummy%' and " +
                         "[ObjectName] not like 'i_%' " +
                         "order by ObjectName";
