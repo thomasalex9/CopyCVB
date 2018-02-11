@@ -29,26 +29,15 @@ namespace CopyCVB
                 @"initial catalog=db_aaa0651b_2358_4854_b28f_614a67adaa8b;" +
                 @"persist security info=True;" +
                 @"user id=db_aaa0651b_2358_4854_b28f_614a67adaa8b_ExternalReader;" +
-                @"password=sQ2Hp%G&KZ9$H+V" +
+                @"password=671EmZd-9Ywoz5z" +
                 @";MultipleActiveResultSets=True;";
             Console.WriteLine("Connecting to Access Web App SQL Server.");
             cvb_conn = new SqlConnection(cvb_conn_str);
             cvb_conn.Open();
 
-            // note: the localdb instance needs to be manully started at a 
-            // cmd prompt:  "sqllocaldb.exe start", then
-            // "sqllocaldb.exe info"
-            //string mdb_conn_str =
-            //   @"data source=(localdb)\ProjectsV13;" +
-            //   "initial catalog=meradia_db;" +
-            //   "persist security info=True;" +
-            //   "Integrated Security=true;" +
-            //   "MultipleActiveResultSets=True;";
-            //Console.WriteLine("Connecting to Local DB.");
-
             // connection string for AZURE:
             string mdb_conn_str =
-               @"data source=meradia-db.database.windows.net,1433;" +
+               @"data source=meradia1-db.database.windows.net,1433;" +
                "initial catalog=meradia_db;" +
                "persist security info=False;" +
                "user id=db_admin; password=Tiller17!;" +
@@ -129,7 +118,9 @@ namespace CopyCVB
                         "[ObjectTypeNumber]=100  AND  " +
                         "[Definition] not LIKE '<Query%' AND " +
                         "[Definition] not like '<DataMacro%' and " +
-                        "[ObjectName] not in ('trace','tag','view_log','audit') and " +
+                        "[ObjectName] not in ('trace','tag','view_log') and " +
+                        "[ObjectName] not in ('experience','experience_detail') and " +
+                        "[ObjectName] not in ('though_leadership','company_info') and " +
                         "[ObjectName] not like 'dummy%' and " +
                         "[ObjectName] not like 'i_%' " +
                         "order by ObjectName";
