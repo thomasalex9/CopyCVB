@@ -10,6 +10,8 @@ SET QUOTED_IDENTIFIER OFF;
 GO
 USE meradia_db;
 GO
+select getdate(), 'Starting'
+go
 
 -- --------------------------------------------------
 -- Dropping existing FOREIGN KEY constraints
@@ -791,3 +793,5 @@ GO
 -- --------------------------------------------------
 -- Script has ended
 -- --------------------------------------------------
+select getdate(),"Done"
+go
